@@ -16,7 +16,7 @@ def generate_answer(context_chunks, question,max_tokens):
     - Do NOT infer, explain, or rephrase.
     - If the question cannot be answered using exact facts from the context,
     reply exactly:
-    "Answer not found in the document."
+    "Answer not found in the document." and NOTHING ELSE.
 
     Context:
     {context}

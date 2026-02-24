@@ -11,13 +11,12 @@ except LookupError:
 def choose_chunk_params(total_words: int):
     """
     Decide chunk size and overlap based on document length
+    optimized for all-MiniLM-L6-v2 (256 token limit)
     """
     if total_words < 1_000:
-        return 150, 2          # small docs
-    elif total_words < 5_000:
-        return 200, 2          # medium docs
+        return 100, 2          # small docs
     else:
-        return 200, 3          # large docs (optimized for speed)
+        return 180, 2          # medium/large docs (optimized for speed)
 
 def chunk_text(pages: list[dict], max_words: int, overlap_sentences: int):
     """

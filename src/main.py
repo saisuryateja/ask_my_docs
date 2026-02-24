@@ -91,7 +91,7 @@ if __name__ == "__main__":
         query_embedding = embed_query(retrieval_query)
         top_indices, distances = vector_store.search(query_embedding, top_k=candidate_k)
 
-        if not is_confident(distances):
+        if not is_confident(distances,abs_threshold=1.5):
             print("\nANSWER:\nAnswer not found in the document.")
             continue
 
@@ -118,6 +118,7 @@ if __name__ == "__main__":
             print("\nANSWER:\n")
 
         final_chunk_texts = [c["text"] for c in retrieved_chunks_data]
+        full_response = []
         for chunk in generate_answer(final_chunk_texts, user_question,max_tokens):
             if HAS_MSVCRT and msvcrt.kbhit():
                 key = msvcrt.getch().decode().lower()
@@ -125,9 +126,11 @@ if __name__ == "__main__":
                     print("\n\n[Generation Interrupted by User]")
                     break
             print(chunk, end="", flush=True)
+            full_response.append(chunk)
         
         # Print Sources
-        if pdf_path and retrieved_chunks_data:
+        full_response_text = "".join(full_response).lower
+        if "not found" not in full_response_text and pdf_path and retrieved_chunks_data:
             pages = sorted(list(set(p for c in retrieved_chunks_data for p in c["pages"])))
             page_str = ", ".join(map(str, pages))
             print(f"\n\nSOURCES: {pdf_path.name} (Page {page_str})")

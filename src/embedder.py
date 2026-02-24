@@ -18,7 +18,6 @@ def embed_query(query: str) -> np.ndarray:
     Embeds a single query string.
     """
     return embedding_model.encode([query], convert_to_numpy=True, show_progress_bar=False)
-
 def rerank_chunks(query: str, chunks: list[str], top_n: int) -> list[str]:
     """
     Scores chunks against the query and returns the top_n most relevant ones.
