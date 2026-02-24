@@ -1,0 +1,6 @@
+<pdf_config>
+    <candidate_k>15</candidate_k>
+    <final_k>2</final_k>
+    <new_pdf>True</new_pdf>
+    <max_tokens>50</max_tokens>
+</pdf_config>
