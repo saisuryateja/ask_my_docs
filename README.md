@@ -2,7 +2,7 @@
 
 A professional-grade Retrieval-Augmented Generation (RAG) system built with Python, emphasizing performance, accuracy, and user control. This project demonstrates a production-ready approach to local LLM knowledge retrieval.
 
-## 🚀 Key Features
+## Key Features
 
 - **Multi-Layer Retrieval**: Implements a two-stage retrieval process.
     - **Layer 1 (Vector Search)**: Broad retrieval of 15 candidate chunks using FAISS.
@@ -14,7 +14,7 @@ A professional-grade Retrieval-Augmented Generation (RAG) system built with Pyth
 - **Interactive Streaming**: Responses are streamed live to the terminal.
 - **User Interrupt**: Stop AI generation immediately by pressing 'q' or 'x' (Windows).
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 - **LLM Engine**: Ollama (Phi-3)
 - **Vectors**: FAISS (Facebook AI Similarity Search)
@@ -22,7 +22,7 @@ A professional-grade Retrieval-Augmented Generation (RAG) system built with Pyth
 - **Re-ranking**: Cross-Encoders (`ms-marco-TinyBERT-L-2-v2`)
 - **PDF Extraction**: PyMuPDF
 
-## 📦 Setup & Installation
+## Setup & Installation
 
 > [!WARNING]
 > This project requires **Ollama** to be installed and running on your system.
@@ -44,7 +44,7 @@ A professional-grade Retrieval-Augmented Generation (RAG) system built with Pyth
    python src/main.py
    ```
 
-## ⚙️ Configuration
+## Configuration
 
 Settings can be adjusted in `config/param.xml`:
 - `candidate_k`: Initial retrieval depth.
@@ -52,7 +52,7 @@ Settings can be adjusted in `config/param.xml`:
 - `max_tokens`: Answer size limit.
 - `new_pdf`: Set to `True` to process a new PDF. It will automatically detect the first `.pdf` file in the `/data` directory.
 
-## 📈 Performance Summary
+## Performance Summary
 
 | Metric | Performance |
 | :--- | :--- |
